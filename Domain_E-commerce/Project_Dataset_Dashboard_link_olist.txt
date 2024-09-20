@@ -1,0 +1,4 @@
+Dataset link: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/code
+
+
+tableau dashboard link : https://public.tableau.com/app/profile/bishowjith.ghosh/viz/Tableau_Olist/Dashboard1?publish=yes

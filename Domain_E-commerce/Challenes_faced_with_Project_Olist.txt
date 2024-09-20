@@ -1,0 +1,57 @@
+1. Data Cleaning and Preprocessing
+Challenge: The raw dataset had missing values, particularly in fields like product_category_name, product dimensions, and weights.
+Solution: I handled missing categorical values by filling them with a placeholder like 'Unknown', and for numerical fields, I used the mean to impute missing values. This ensured consistency in the dataset without introducing bias.
+Interview Insight: “Handling missing values required careful attention, especially in balancing between maintaining data integrity and avoiding loss of important information.”
+
+2. Complex Data Relationships (connectivity to load data from python to MySQL)
+Challenge: The dataset had multiple interconnected tables (e.g., orders, customers, products, sellers), which made the merging process crucial to ensure accurate data analysis.
+Solution: I had to carefully design joins (using left joins) to ensure that no essential data was lost during the merging process. For example, when merging the orders table with products, I ensured that even if product details were missing, the order information remained intact.
+Interview Insight: “Working with multiple tables required an understanding of data relationships and making sure that the join operations didn’t unintentionally drop rows or introduce duplicates.”
+
+3. Large Dataset Handling
+Challenge: The Olist dataset is large, which made data processing and querying a bit slow, especially during complex operations like joins and aggregations.
+Solution: I optimized the queries and used efficient Pandas operations.
+Python Interview Insight: “Handling large datasets required optimization techniques both in MySQL and Python to ensure performance efficiency without sacrificing data accuracy.”
+
+4. Merging Multiple Tables with Missing Keys
+Challenge: Some of the primary keys, like product_id and customer_id, were missing in certain tables, which could have led to errors during the merging process.
+Solution: I used left joins in MySQL and Pandas to retain all necessary data from the main tables while filling missing data with NaN placeholders for analysis consistency.
+Interview Insight: “The issue of missing primary keys during table merging was critical, and I used left joins to ensure that no valuable data was lost.”
+
+5. Understanding Business Metrics
+Challenge: Translating business requirements (such as customer segmentation, cohort analysis, and product category analysis) into SQL and Python queries was challenging at first.
+Solution: I broke down business questions into smaller, more manageable SQL queries and Python tasks, such as calculating RFM (Recency, Frequency, Monetary) values for customer segmentation and performing cohort analysis.
+Interview Insight: “Understanding the business problem behind the analysis was crucial. I had to break down complex business metrics into smaller SQL queries and Python functions, ensuring alignment between technical outputs and business goals.”
+
+6. Visualization Decisions in Tableau
+Challenge: Choosing the right visualization type for each business insight in Tableau was tricky, especially when dealing with large amounts of data.
+Solution: I experimented with different types of visualizations (bar charts, tree maps, and heat maps) and selected the ones that provided the most intuitive representation of key metrics like sales by product category and customer segmentation.
+Interview Insight: “Data visualization was essential to communicate insights clearly. I tested various Tableau visualizations to ensure they highlighted the most relevant information effectively.”
+
+7. Ensuring Data Accuracy
+Challenge: There was a need to ensure that all data transformations (e.g., calculating sales totals, customer lifetime values) were accurate, especially when aggregating or merging data.
+Solution: I wrote multiple checks, including comparing dataset counts before and after merging, and validating calculated values like total sales against raw data.
+Interview Insight: “Ensuring the accuracy of data transformations required extra validation steps, including testing calculations and verifying data counts after each processing step.”
+
+Problem: Joining Multiple Tables in MySQL
+
+Details: Another challenge was joining multiple tables (cleaned_orders, cleaned_customers, cleaned_order_items, and cleaned_products). Due to the complexity of the relationships between these tables, I initially encountered difficulties with establishing the correct joins.
+Solution: I carefully analyzed the foreign keys (customer_id, product_id, and order_id) and used SQL JOIN operations to connect the tables correctly. This allowed me to retrieve the complete dataset with customer, product, and order details.
+
+
+Problem: Integration with Tableau Public
+
+Details: While working with Tableau Public, I was limited in directly connecting to MySQL. This required me to export the data as a CSV and then load it into Tableau for visualization.
+Solution: After merging and cleaning the data in MySQL, I exported the result set as a CSV file and imported it into Tableau Public. This allowed me to create visualizations for sales trends, customer segmentation, and shipping performance using the merged dataset.
+Problem: CSV File Integration in Tableau
+
+Details: Tableau Public doesn’t allow multiple connections to join CSV files. Initially, I tried connecting multiple tables in Tableau but encountered limitations.
+Solution: I pre-merged the required tables in MySQL and exported the data as a single CSV. This allowed me to work with a unified dataset in Tableau Public without needing to perform additional joins in Tableau.
+
+Shipping Time Calculation Issues:
+You initially had problems calculating and visualizing shipping times in Tableau. The shipping times showed negative values and zeros, which you wanted to replace with a minimum of 1 day. You also had trouble rounding the shipping times to the nearest integer.
+
+Handling Missing Locations (Geographical Mapping):
+When working with geographical data (states and countries), you encountered issues with states being "unrecognized" in Tableau, particularly due to country/state mismatches.
+
+

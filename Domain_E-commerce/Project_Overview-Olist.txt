@@ -1,0 +1,55 @@
+
+Documentation for E-commerce Domain : Olist Marketplace Sales Analysis
+Project Documentation: Olist E-Commerce Sales and Customer Insights Analysis
+
+Prepared By : Bishowjith Ghosh
+Date: September, 2024
+
+
+Project Overview:
+This project analyzes sales, customer behavior, and shipping performance using the Olist Brazilian E-Commerce dataset. The goal is to provide actionable insights through data cleaning, querying, and visualizations using Python, MySQL, and Tableau.
+
+Steps:
+
+Environment Setup:
+
+1. Installed Python with necessary libraries .
+2. Installed and configured MySQL for data storage and querying.
+3. Installed Tableau for creating interactive dashboards.
+
+ 
+Dataset Download:
+Dataset: Olist Brazilian E-Commerce Public Dataset from Kaggle.
+
+ 
+Data Cleaning, Prepossessing, Data Transformation (Python)
+Loaded dataset into Python using Pandas.
+Handled missing values
+Converted date fields
+Removed duplicate records
+Handled white spaces and case sensitivity issues.
+Merged all relevant datasets.
+Calculated total order value, order processing time, shipping time .
+Extracted date components (year, month, day of the week).
+Create Customer Segmentation Features:
+Exported the cleaned data for MySQL.
+
+
+Database Setup and Querying (MySQL):
+ Created MySQL database and set up tables (Orders, Customers, Products, etc.).
+ Inserted cleaned data into the database.
+ Ran SQL queries to analyze:
+
+1. Total sales by product category and region.
+2. Customer segmentation based on purchase frequency and spending.
+3. Shipping performance (average delivery times, delayed orders).
+
+
+Data Visualization (Tableau):
+Connected Tableau to the MySQL database.
+Created dashboards:
+1. Sales Trends: Showed sales over time by product category and region.
+2. Customer Insights: Displayed customer segmentation and geographical spending patterns.
+3. Shipping Performance: Visualized average delivery times and shipping delays by region.
+
+ 
