@@ -1,0 +1,39 @@
+Data Type Conversion Issues in Python:
+
+When converting certain columns like Date, Time, Year, and Customer_ID from object types to more appropriate data types (such as integers and datetimes), there were several challenges. Missing values (NaN), inconsistent formats, and incorrect assumptions about the initial format of the data caused errors like AttributeError and ValueError. For instance:
+Attempting to apply .str.strip() on columns that were not properly converted to strings resulted in AttributeError.
+Improper handling of time formatting led to a NaTType error when converting time values.
+The NaN values in the Date and Time columns caused confusion when trying to parse the data to a datetime format.
+Time Format Conversion in Python:
+
+The original time values were in the format HHMMSS (without separators). You faced several issues converting these values into a proper time format, including:
+Applying improper conversion methods that led to errors such as ValueError due to unrecognized NaTType.
+Dealing with missing values in the Time column required additional handling. You had to introduce custom functions to handle both missing values and invalid formats.
+
+Data Insertion Issues in MySQL:
+
+After formatting and cleaning the data in Python, attempts to insert the data into MySQL resulted in incomplete data being inserted. Specifically, column headers appeared, but no actual data was inserted into the MySQL tables.
+This was due to a misconfigured connection and batch insertion logic in the Python script. The None values were not being handled properly in the batch insertion process, causing some rows to be skipped.
+There were also issues with matching the data types in Python to appropriate MySQL types, especially with the VARCHAR length constraints on columns like Phone.
+
+Connection Between Python and MySQL:
+
+The connection between Python and MySQL took time to set up correctly. The initial attempts to execute SQL commands from the Python script (like creating tables and inserting data) failed due to syntax errors, incorrect column mappings, and issues with handling missing or null values in MySQL.
+For example, creating tables in MySQL from Python required the careful mapping of data types between Python’s pandas and MySQL’s SQL types. Improper mappings caused issues, leading to errors like Error Code: 1064.
+Date and Time Null Handling in MySQL:
+
+When exporting data from Python to MySQL, certain columns, especially Date and Time, continued to show NULL values in MySQL. This required further data cleaning and formatting adjustments in Python to ensure that the correct values were inserted
+
+
+For Tableau: 
+
+Handling Missing Data:
+
+Filling missing values in Tableau was a challenge. Even though the missing data was handled during the data cleaning process in Python, some missing values were still showing up in Tableau.
+The calculated field for imputing missing values (e.g., filling missing quarter data) didn’t work as expected, leading to confusion and time loss.
+Date Handling Issues:
+
+Tableau had trouble recognizing and managing date fields properly, especially when trying to simulate quarters that didn’t exist in the original dataset. This caused errors in creating calculated fields and formatting the dates properly.
+Calculated Fields:
+
+Faced errors while creating calculated fields to handle the missing quarters and simulate quarter values. Multiple attempts to fix the syntax of calculated fields were required, which was time-consuming.

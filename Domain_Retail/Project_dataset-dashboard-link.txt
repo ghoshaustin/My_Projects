@@ -1,0 +1,3 @@
+https://www.kaggle.com/datasets/bhavikjikadara/retail-transactional-dataset/data
+
+Dashboard link: https://public.tableau.com/app/profile/bishowjith.ghosh/viz/Project_Retail_Sales_Insights/Dashboard1?publish=yes

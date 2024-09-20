@@ -1,0 +1,161 @@
+Project Requirement Document
+Project Name: Retail_Sales_Insights
+Objective:
+The Retail_Sales_Insights project focuses on utilizing data cleaning, transformation, and analysis techniques on the Retail Sales Dataset. The project will use Python for data cleaning and preprocessing, MySQL for querying and data analysis, and Tableau for visualizing business insights. The goal is to prepare a comprehensive solution that addresses common data quality issues and generates actionable insights for decision-making.
+
+Project Scope:
+The project will include tasks such as identifying and handling missing values, cleaning unnecessary characters, removing duplicates, transforming data types, and creating meaningful insights through analysis and visualization. The project will be divided into three main components: Python for data cleaning, MySQL for querying, and Tableau for visualizing the data.
+
+Python Tasks (Data Cleaning & Preprocessing):
+
+Check for Missing Values:
+Identify and list columns with missing data, calculating the total count of missing entries.
+
+Fill Missing Values:
+Impute missing numerical values using the median and fill missing categorical data.
+
+Handle Duplicates:
+Detect and remove duplicate records in the dataset to maintain data integrity.
+
+Correct Data Types:
+Ensure data types are appropriately formatted (e.g., convert Date columns to datetime, Total_Amount to float).
+
+Clean String And Numerical Data:
+Remove unnecessary spaces, special characters, and correct irregularities in fields like customer names and addresses
+
+Analysis:
+# 1. Analyze the Total Sales per State (using pandas).
+
+# 2. Visualize Total Sales by State (using seaborn).
+
+# 3. Visualize the Breakdown of Customer Segments.
+
+# 4. Plot the Purchase Trends Over Time (using matplotlib).
+
+# 5. Find Customers with Total Amount Above a Certain Threshold.
+
+# 6. Find the Average Purchase Amount by Customer Segment.
+
+# 7. Sort the data by Total_Amount in descending order.
+
+# 8. Use iloc to select rows 10 to 15 and specific columns.
+
+# 9. Group by Product_Brand and calculate total purchases for each brand.
+
+# 10. Rename columns 'Total_Amount' to 'Total_Spent' and 'Total_Purchases' to 'Purchases_Made'.
+
+# 11. Use iloc to select the 3rd, 7th, and 10th rows and specific columns.
+
+# 12. Group by Gender and count the number of unique customers.
+
+# 13. Group by 'State' and calculate max and min of Total_Amount for each state.
+
+# 14. Data Export for MySQL: After cleaning, export the prepared data in a CSV format for integration with MySQL.
+
+# 15. Connect Python to MySQL using mysql.connector.
+
+# 16. Create a MySQL table from the cleaned data.
+
+# 17. Insert data from the CSV into MySQL in batches.
+
+# 18. Write a query in Python to retrieve records from MySQL.
+
+# 19. Update records in MySQL based on data from the cleaned dataset.
+
+# 20. Verify the successful insertion of data into MySQL with a SELECT query in Python.
+
+
+
+MySQL Tasks (Data Analysis & Queries):
+Import Cleaned Data:
+Load the cleaned CSV file into MySQL for further analysis and querying.
+
+-- 1. Write a query to determine the top 5 most frequently purchased products.
+
+-- 2. Group customers by Customer_Segment and calculate the average Total_Amount for each group.
+
+-- 3. Analyze total sales per Country and rank countries by sales.
+
+-- 4. Identify which Product_Category contributes the most to total sales.
+
+-- 5. Write a query to list customers who haven't made purchases in the last 12 months.
+
+-- 6. Query the top 5 regions (by State) with the highest sales.
+
+-- 7. Query and filter orders based on negative feedback scores to analyze product issues.
+
+-- 8. Compare sales under promotion and non-promotion (Order_Status = Promo).
+
+-- 9. Analyze customer spending behavior based on Income and Total_Purchases.
+
+-- 10. Calculate the total number of purchases for each Product_Type.
+
+-- 11. Write a query to calculate the average Age of customers in each Country.
+
+-- 12. Identify the top 3 Payment_Methods used by customers.
+
+-- 13. Calculate the percentage of customers who gave 'Excellent' feedback out of the total feedback received.
+
+-- 14. Write a query to find customers who have made more than 10 purchases.
+
+-- 15. Identify the top-selling products in the Electronics Product_Category.
+
+-- 16. Query to get the total sales for each Shipping_Method.
+
+-- 17. List the customers who have spent more than 5000 in Total_Amount.
+
+-- 18. Query to calculate the average Ratings for each Product_Type.
+
+-- 19. Write a query to find customers who have not made purchases using Credit Card.
+
+-- 20. Query to analyze the number of customers by Gender and Customer_Segment.
+
+-- 21. Write a query to calculate the average total amount spent by customers, grouped by income level.
+
+-- 22. Write a query to find the number of purchases made in each month of the current year.
+
+-- 23. Write a query to calculate the percentage of Premium segment customers in the entire customer base.
+
+-- 24. Write a query to list all unique product categories sold.
+
+-- 25. Write a query to calculate the total number of orders that have been shipped.
+
+-- 26. Write a query to calculate the minimum, maximum, and average rating for each product category.
+
+-- 27. Write a query to identify customers who have given at least 5 ratings.
+
+-- 28. Write a query to count the number of orders placed in each quarter of the year.
+
+-- 29. Write a query to calculate the total amount spent by each customer across all their purchases.
+
+-- 30. Write a query to list customers who purchased Electronics products and have given an Excellent feedback.
+
+
+
+
+Tableau Tasks (Visualization & Insights):
+
+-- 1. Create a time-series visualization showing sales by month and year to understand seasonal trends.
+
+-- 2. Visualize customer segments by Income and Total_Purchases to uncover spending patterns.
+
+-- 3. Use a bar chart to show sales for each Product_Category and identify top-performing categories.
+
+-- 4. Create a geographical map to display sales across different countries and states.
+
+-- 5. Visualize the impact of promotions on sales performance using a comparison chart.
+
+-- 6. Display the distribution of customer feedback ratings and highlight products with the most negative feedback.
+
+-- 7. Use a stacked bar chart to analyze shipping performance based on Shipping_Method and Order_Status.
+
+-- 8.  Sales Performance by Product Type and Payment Method.
+
+-- 9. Analyze the Relationship Between Customer Age and Total Purchases
+
+-- 10. Blend customer and sales data to create a dashboard that visualizes sales by customer location (City, State).
+
+-- Deliverables:
+-- Python: A cleaned, transformed dataset exported for MySQL integration.
+-- MySQL: Queries to answer key business questions and extract insights from the cleaned data.
+-- Tableau: Interactive dashboards providing clear business insights, such as sales trends, customer segmentation, and product performance.
