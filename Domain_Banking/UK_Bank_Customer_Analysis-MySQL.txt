@@ -1,0 +1,184 @@
+create database uk_Bank_Customer;
+use uk_Bank_Customer;
+-- Disable safe update mode for the current session
+SET SQL_SAFE_UPDATES = 0;
+
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    surname VARCHAR(100),
+    gender VARCHAR(10),
+    age INT,
+    region VARCHAR(100),
+    job_classification VARCHAR(100),
+    date_joined DATE,
+    balance FLOAT
+);
+select * from customers;
+
+-- Create the transactions table with a foreign key to the customers table
+CREATE TABLE IF NOT EXISTS transactions (
+    transaction_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    transaction_amount FLOAT,
+    transaction_date DATE,
+    transaction_type VARCHAR(50),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+-- Insert data into the transactions table
+INSERT INTO transactions (customer_id, transaction_amount, transaction_date, transaction_type)
+VALUES
+(100000001, 200.00, '2023-01-01', 'Debit'),
+(100000001, 500.00, '2023-02-15', 'Credit'),
+(100000001, 100.50, '2023-03-20', 'Debit'),
+(100000001, 300.00, '2023-05-25', 'Credit'),
+
+(400000002, 150.00, '2023-01-10', 'Debit'),
+(400000002, 250.75, '2023-02-28', 'Credit'),
+(400000002, 175.00, '2023-03-15', 'Debit'),
+(400000002, 325.50, '2023-05-01', 'Credit'),
+
+(100000003, 350.00, '2023-01-05', 'Credit'),
+(100000003, 450.50, '2023-02-18', 'Debit'),
+(100000003, 500.00, '2023-03-22', 'Credit'),
+(100000003, 120.00, '2023-06-10', 'Debit'),
+
+(300000004, 220.00, '2023-02-07', 'Credit'),
+(300000004, 340.00, '2023-03-13', 'Debit'),
+(300000004, 180.50, '2023-04-25', 'Credit'),
+(300000004, 210.75, '2023-06-20', 'Debit'),
+
+(100000005, 400.00, '2023-01-12', 'Credit'),
+(100000005, 250.25, '2023-03-15', 'Debit'),
+(100000005, 350.50, '2023-05-05', 'Credit'),
+(100000005, 150.00, '2023-06-15', 'Debit');
+
+select * from transactions;
+
+-- Question: Write an SQL query to filter and retrieve customers with balances above a defined threshold.
+SELECT * FROM customers
+WHERE balance > 50000;
+
+-- Question: Use SQL aggregate functions (e.g., AVG(), COUNT(), SUM()) to calculate key metrics such as the total number of customers and the average balance.
+
+-- Total number of customers
+SELECT COUNT(*) AS total_customers FROM customers;
+
+-- Average balance of all customers
+SELECT AVG(balance) AS average_balance FROM customers;
+
+-- Sum of all customer balances
+SELECT SUM(balance) AS total_balance FROM customers;
+
+-- Question: Group customers by their Job Classification and calculate the average balance for each job type.
+SELECT job_classification, AVG(balance) AS average_balance
+FROM customers
+GROUP BY job_classification;
+
+-- Question: Write an SQL query to join multiple tables (e.g., customers and transactions) to analyze customer behavior.
+SELECT customers.customer_id, customers.name, customers.balance, transactions.transaction_amount
+FROM customers
+JOIN transactions ON customers.customer_id = transactions.customer_id;
+
+-- Question: Write a subquery to retrieve customers whose age is below the overall average age.
+SELECT * FROM customers
+WHERE age < (SELECT AVG(age) FROM customers);
+
+-- Question: Write an SQL query to create a new column and update it to classify customers based on their balance.
+
+-- Add a new column 'balance_category' to classify customers based on balance
+ALTER TABLE customers ADD COLUMN balance_category VARCHAR(50);
+
+-- Update the new column 'balance_category' to classify customers
+UPDATE customers
+SET balance_category = CASE
+    WHEN balance > 100000 THEN 'High Balance'
+    WHEN balance BETWEEN 50000 AND 100000 THEN 'Medium Balance'
+    ELSE 'Low Balance'
+END;
+
+-- Question: Write an SQL query to identify customers with multiple accounts or those who have had repeat transactions.
+SELECT customer_id, COUNT(*) AS num_transactions
+FROM transactions
+GROUP BY customer_id
+HAVING COUNT(*) > 1;
+
+-- Write an SQL query to calculate the average age of customers by region and display it in descending order.
+-- Calculate the average age of customers for each region and display in descending order
+SELECT region, AVG(age) AS average_age
+FROM customers
+GROUP BY region
+ORDER BY average_age DESC;
+
+-- Write an SQL query to count the number of customers in each region.
+SELECT region, COUNT(*) AS customer_count
+FROM customers
+GROUP BY region;
+
+-- Write an SQL query to retrieve the top 5 customers with the highest balances.
+SELECT customer_id, name, balance
+FROM customers
+ORDER BY balance DESC
+LIMIT 5;
+
+-- Write an SQL query to calculate the total balance of all customers in each job classification.
+SELECT job_classification, SUM(balance) AS total_balance
+FROM customers
+GROUP BY job_classification;
+
+-- Write an SQL query to find the youngest customer in the database.
+SELECT customer_id, name, age
+FROM customers
+ORDER BY age ASC
+LIMIT 1;
+
+-- Write an SQL query to list the number of male and female customers in the database.
+SELECT gender, COUNT(*) AS gender_count
+FROM customers
+GROUP BY gender;
+
+-- Write an SQL query to calculate the average balance of customers by gender.
+SELECT gender, AVG(balance) AS average_balance
+FROM customers
+GROUP BY gender;
+
+-- Write an SQL query to find customers with a balance between 20,000 and 50,000.
+SELECT customer_id, name, balance
+FROM customers
+WHERE balance BETWEEN 20000 AND 50000;
+
+-- Write an SQL query to display customers who have "Blue Collar" as their job classification and live in "England".
+SELECT customer_id, name, job_classification, region
+FROM customers
+WHERE job_classification = 'Blue Collar' AND region = 'England';
+
+-- Write an SQL query to calculate the total number of customers and the average age of all customers.
+SELECT COUNT(*) AS total_customers, AVG(age) AS average_age
+FROM customers;
+
+-- Find customers who have joined the bank before the year 2010
+SELECT customer_id, name, date_joined
+FROM customers
+WHERE YEAR(date_joined) < 2010;
+
+-- Display customers who have a balance greater than the average balance of all customers
+SELECT customer_id, name, balance
+FROM customers
+WHERE balance > (SELECT AVG(balance) FROM customers);
+
+-- List the customers who are older than 50 and have a balance less than 10,000
+SELECT customer_id, name, age, balance
+FROM customers
+WHERE age > 50 AND balance < 10000;
+
+-- Find the most common job classification among all customers
+SELECT job_classification, COUNT(*) AS job_count
+FROM customers
+GROUP BY job_classification
+ORDER BY job_count DESC
+LIMIT 1;
+
+-- Find the highest balance for each job classification
+SELECT job_classification, MAX(balance) AS highest_balance
+FROM customers
+GROUP BY job_classification;
