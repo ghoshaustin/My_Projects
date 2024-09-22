@@ -1,0 +1,143 @@
+Capstone Project: UK Bank Customer Data Analysis
+Project Overview:
+This capstone project focuses on analyzing customer data from a UK bank using Python, MySQL, pandas, and Tableau. The goal is to explore customer demographics, financial behavior, and trends through data cleaning, transformation, and visualization techniques. The project does not involve machine learning but focuses on generating actionable insights through data analysis.
+
+Python and pandas Tasks (Data Cleaning, Transformation, and Analysis)
+Loading and Previewing Data:
+
+Question: Load the dataset UK-Bank-Customers.csv and display the first 5 rows.
+Checking for Missing and Duplicate Data:
+
+Question: Identify and handle missing values and duplicates in the dataset. If found, fill missing values and remove duplicate records.
+Data Type Conversion:
+
+Question: Convert the Date Joined column to the correct datetime format for easier analysis.
+Descriptive Statistics:
+
+Question: Generate summary statistics for numerical columns such as Age and Balance. Provide insights into the data distribution (e.g., mean, median, etc.).
+Outlier Detection and Removal:
+
+Question: Detect and remove outliers in the Balance column using the Interquartile Range (IQR) method.
+Feature Engineering (Customer Tenure):
+
+Question: Calculate the number of years each customer has been with the bank by deriving a Term(Years) column from the Date Joined field.
+Customer Segmentation by Age:
+
+Question: Create an Age Group column to segment customers into groups (e.g., Young, Early Career, Mid Career, Experienced, and Senior), and analyze the average balance for each group.
+Grouping and Aggregating Data:
+
+Question: Group the data by Job Classification and calculate the average Balance and Term(Years) for each group.
+Customer Distribution by Age Group:
+
+Question: Create a bar plot that shows the number of customers in each Age Group.
+Balance Distribution:
+
+Question: Plot the distribution of customer balances using a histogram with a kernel density estimate (KDE).
+
+....................
+
+MySQL Tasks (Database Management and Querying)
+Database Design and Table Creation:
+
+Question: Create a customers table in MySQL with columns such as customer_id, name, age, balance, and loan_status.
+Inserting Data:
+
+Question: Load the customer data into the MySQL table using SQL queries or by importing from a CSV file.
+Filtering High-Value Customers:
+
+Question: Write an SQL query to filter and retrieve customers with balances above a defined threshold.
+Aggregate Queries:
+
+Question: Use SQL aggregate functions (e.g., AVG(), COUNT(), SUM()) to calculate key metrics such as the total number of customers and the average balance.
+Customer Segmentation by Job Type:
+
+Question: Group customers by their Job Classification and calculate the average balance for each job type.
+Join Queries:
+
+Question: Write an SQL query to join multiple tables (e.g., customers and transactions) to analyze customer behavior.
+Subqueries for Customer Insights:
+
+Question: Write a subquery to retrieve customers whose age is below the overall average age.
+Updating Customer Data:
+
+Question: Write an SQL query to update fields such as loan_status for customers whose balances exceed a certain threshold.
+Customer Retention Query:
+
+Question: Write an SQL query to identify customers with multiple accounts or those who have had repeat transactions.
+Cleaning Inactive Customers:
+
+Question: Write an SQL query to calculate the average age of customers by region and display it in descending order.
+
+Question: Write an SQL query to count the number of customers in each region.
+
+Question: Write an SQL query to retrieve the top 5 customers with the highest balances.
+
+Question: Write an SQL query to calculate the total balance of all customers in each job classification.
+
+Question: Write an SQL query to find the youngest customer in the database.
+
+Question: Write an SQL query to find customers who joined within the last 3 years.
+
+Question: Write an SQL query to list the number of male and female customers in the database.
+
+Question: Write an SQL query to calculate the average balance of customers by gender.
+
+Question: Write an SQL query to find customers with a balance between 20,000 and 50,000.
+
+Question: Write an SQL query to display customers who have "Blue Collar" as their job classification and live in "England."
+
+Question: Write an SQL query to calculate the total number of customers and the average age of all customers.
+
+Question: Write an SQL query to find customers who have joined the bank before the year 2010.
+
+Question: Write an SQL query to display customers who have a balance greater than the average balance of all customers.
+
+Question: Write an SQL query to list the customers who are older than 50 and have a balance less than 10,000.
+
+Question: Write an SQL query to find the most common job classification among all customers.
+
+Question: Write an SQL query to find the highest balance for each job classification.
+
+..................
+
+Tableau Tasks (Visualization and Dashboard Creation)
+
+1. Region-wise Customer Distribution:
+Question: How many customers are there in each region of the UK (England, Scotland, Wales, and Northern Ireland)?
+Task: Create a filled map or symbol map to visualize customer distribution by region. The number of customers should be displayed for each region (e.g., 2,159 for England).
+
+2. Gender Ratio:
+Question: What is the percentage split between male and female customers?
+Task: Use a pie chart to display the gender ratio of the customer base with percentage labels for each segment (50.533% male, 49.467% female).
+
+3. Job Classification:
+Question: What are the job classifications of customers, and which category has the highest representation?
+Task: Build a treemap or stacked bar chart to show the percentage of customers in different job classifications (e.g., 69.52% in White Collar jobs).
+
+4. Age Distribution:
+Question: What is the age distribution of customers? How many customers belong to each age group?
+Task: Create a bar chart (histogram) showing the number of customers in various age bins (e.g., 941 customers aged 32, 591 aged 24). The chart should clearly display the most common age group.
+
+5. Top 5 Customers by Balance:
+Question: Who are the top 5 customers by balance, and what is their respective account balance?
+Task: Create a bar chart to visualize the top 5 customers based on their account balance, with the customer names and exact balance amounts (e.g., Paul Reid with £197.80K).
+
+6. New Customer Trend & Pattern:
+Question: How has the number of new customers changed over time?
+Task: Create a line chart showing the distinct count of new customers joining by month, with trendlines and a confidence interval to highlight growth patterns (e.g., December 2014 to December 2016).
+
+7. Top 3 Customers in Each Region:
+Question: Who are the top 3 customers by balance in each region of the UK?
+Task: Create a table or bar chart to display the top 3 customers in each region along with their respective balances. Ensure the data is sorted by region (e.g., England, Northern Ireland, Scotland, Wales).
+
+8. Filter by Region:
+Question: How does filtering by region affect gender ratio, job classification, and age distribution of customers?
+Task: Add interactive filters that allow users to explore how customer demographics (gender, age, job classification) change based on selected regions (e.g., focusing only on customers from Scotland).
+
+9. Age and Job Classification Comparison:
+Question: How is the age distribution spread across different job classifications?
+Task: Create a side-by-side bar chart or heatmap to analyze the relationship between customers' age and job classification, showing which job categories dominate specific age groups.
+
+10. Customer Acquisition by Region Over Time:
+Question: How do customer acquisition trends differ across various regions over time?
+Task: Build a combined line chart showing the number of new customers acquired over time for each region, highlighting the differences between regions (England, Scotland, Wales, Northern Ireland).
